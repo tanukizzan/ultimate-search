@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ultimate search</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon.png">
+  <link rel="icon" href="./images/favicon.png">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content="https://app.tanukizzan.com/ultimate-search" />
+  <meta property="og:title" content="Ultimate search" />
+  <meta property="og:description" content="いろいろなサイトで検索するのに便利なサイトです。" />
+  <meta property="og:image" content="https://app.tanukizzan.com/ultimate-search/images/ultimate.png" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <header>
+    <img src="./images/ultimate.png" alt="Ultimate search">
+
+    <select name="" id="pulldown">
+      <option value="null">キーワードを選択...</option>
+    </select>
+
+    <form class="search-area" onsubmit="return false;">
+      <input type="search" name="search" id="window" autofocus>
+      <i class="fas fa-search"></i>
+      <i class="fas fa-microphone" id="speak-button"></i>
+    </form>
+  </header>
+
+  <main>
+    <div class="button-area">
+      <i class="fab fa-google icon"></i>
+      <button id="google">検索</button>
+      <button id="gimages">画像</button>
+      <button id="gmaps">地図</button>
+      <button id="gtrans">翻訳</button>
+      <button id="youtube">YouTube</button>
+    </div>
+    <div class="button-area">
+      <i class="fas fa-search icon"></i>
+      <button id="yahoo">Yahoo!</button>
+      <button id="bing">Bing</button>
+      <button id="duck">DuckDuckGo</button>
+      <button id="wiki">Wikipedia</button>
+    </div>
+    <div class="button-area">
+      <i class="fas fa-shopping-cart icon"></i>
+      <button id="amazon">Amazon</button>
+      <button id="rakuten">Rakuten</button>
+      <button id="kakaku">価格.com</button>
+    </div>
+    <div class="button-area">
+      <input type="checkbox" name="hashtag" id="hashtag">
+      <label for="hashtag"><i class="fas fa-hashtag icon"></i></label>
+      <button id="twitter">Twitter</button>
+      <button id="instagram">Instagram</button>
+      <button id="facebook">Facebook</button>
+      <button id="note">note</button>
+    </div>
+    <div class="button-area">
+      <i class="fas fa-random icon"></i>
+      <button id="random" colspan="3">I'm Feeling Lucky</button>
+    </div>
+  </main>
+
+  <footer>
+    <a href="https://app.tanukizzan.com">Other Apps</a>
+    <a href="https://github.com/tanukizzan/search/">GitHub</a>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

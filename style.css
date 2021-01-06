@@ -1,0 +1,213 @@
+html {font-size: 16px;}
+
+body {
+  background: #fff;
+  color: #222;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  table-layout: fixed;
+  user-select: none;
+}
+
+header {
+  width: 90%;
+  max-width: 40em;
+  margin: auto;
+}
+
+/* search ロゴ */
+img {
+  display: block;
+  margin: 4rem auto 2rem auto;
+}
+
+/* キーワード選択メニュー */
+#pulldown {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  text-align: center;
+  margin: auto;
+  padding: 0.8rem 1.2rem;
+  outline: none;
+  border: solid 1px #dfe1e5;
+  cursor: pointer;
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+  background-size: 5px 5px, 5px 5px;
+  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+}
+
+/* 検索窓 */
+form input[type="search"] {-webkit-appearance:none;}
+
+.search-area #window {
+  width: 100%;
+  line-height: 2.4em;
+  font-size: 1.2em;
+  padding: 0 42px;
+  border-radius: 30px;
+  border: solid 1px #dfe1e5;
+  outline: none;
+  transition: .3s;
+}
+
+#window:hover, #window:focus {box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);}
+
+/* autocomplete時の背景色無効 */
+@keyframes onAutoFillStart { from {} to {}}
+
+#window:-webkit-autofill {
+  animation-name: onAutoFillStart;
+  transition: background-color 50000s ease-in-out 0s;
+}
+
+.search-area {position: relative;}
+
+.search-area .fa-search {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  color: #5F6368;
+}
+
+.search-area .fa-microphone {
+  position: absolute;
+  bottom: 0.85em;
+  right: 1em;
+  font-size: 18px;
+  color: #5F6368;
+}
+
+.search-area .fa-microphone:hover {cursor: pointer;}
+
+/* ボタンエリア */
+main {
+  margin: 1rem auto 3rem auto;
+  flex: 1;
+}
+
+.button-area {margin-top: 0.5rem;}
+
+.button-area .icon, .button-area button {
+  color: #5F6368;
+  background-color: #F2F2F2;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  transition: .3s;
+}
+
+.button-area .icon {
+  text-align: center;
+  font-size: 20px;
+  width: 3rem;
+  line-height: 3rem;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.button-area button {
+  padding: 0 1.2rem;
+  line-height: 3rem;
+  margin-left: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  overflow-wrap : break-word;
+}
+
+.button-area button:hover {
+  box-shadow: 0 0 3px #222;
+  outline: 1px #222;
+  color: #222;
+  cursor: pointer;
+}
+
+label .icon {cursor: pointer;}
+
+input[type=checkbox] {display: none;}
+input[type=checkbox]:checked + label .icon {background-color: #7cfc00;}
+
+#gimages:hover {color: #222; background: #FBBC05;}
+#gmaps:hover {color: #fff; background: #34A853;}
+#gtrans:hover {color: #fff; background: #4285F4;}
+#youtube:hover {color: #fff; background: #ff0000;}
+#yahoo:hover {color: #fff; background: #ff0033;}
+#bing:hover {color: #fff; background: #008274;}
+#amazon:hover {color: #fff; background: #ff9900;}
+#rakuten:hover {color: #fff; background: #bf0000;}
+#kakaku:hover {color: #fff; background: #001789;}
+#twitter:hover {color: #fff; background: #1da1f2;}
+#instagram:hover {color: #fff; background: linear-gradient(135deg, #427eff 0%, #f13f79 80%);}
+#facebook:hover {color: #fff; background: #3b5998;}
+#note:hover {color: #fff; background: #41C9B4;}
+
+/* フッター */
+footer {
+  line-height: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0;
+  bottom: 0;
+  cursor: default;
+  background: #F2F2F2;
+  outline: 1px solid #dfe1e5;
+  width: 100%;
+}
+
+footer a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #5F6368;
+  margin: 1em;
+}
+footer a .fas {margin-right: 5px;}
+
+footer a:hover {text-decoration: underline;}
+footer a:hover .fas {color: #ff0000;}
+
+/* スマホ用CSS */
+@media screen and (max-width: 700px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-x: auto;
+    width: 90%;
+  }
+  .button-area {
+    display: flex;
+    flex: 0 0 auto;
+  }
+  .button-area button {margin-left: 10px;}
+}
+
+@media screen and (max-width: 400px) {
+  img {width: 100%;}
+}
+
+/* ダークモード対応CSS */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1F1F1F;
+  }
+  img {
+    filter: brightness(0) invert(1);
+  }
+  .search-area #window {
+    border-color: #333;
+  }
+  footer {
+    background-color: #282828;
+    outline-color: #333;
+  }
+  footer a {
+    color: #fff;
+  }
+}
