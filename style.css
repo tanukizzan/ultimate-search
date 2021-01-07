@@ -41,6 +41,7 @@ img {
   background-size: 5px 5px, 5px 5px;
   background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
   background-repeat: no-repeat;
+  background-color: #fff;
 }
 
 /* 検索窓 */
@@ -151,7 +152,7 @@ input[type=checkbox]:checked + label .icon {background-color: #7cfc00;}
 footer {
   line-height: none;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin: 0;
   bottom: 0;
@@ -161,16 +162,22 @@ footer {
   width: 100%;
 }
 
-footer a {
+footer div {
+  display: flex;
+  margin: 0 1rem;
+}
+
+footer p, footer p a {
+  color: #5F6368;
+  margin: 1rem;
+}
+
+footer p a {
   cursor: pointer;
   text-decoration: none;
-  color: #5F6368;
-  margin: 1em;
 }
-footer a .fas {margin-right: 5px;}
 
-footer a:hover {text-decoration: underline;}
-footer a:hover .fas {color: #ff0000;}
+footer p a:hover {text-decoration: underline;}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
@@ -186,6 +193,8 @@ footer a:hover .fas {color: #ff0000;}
     flex: 0 0 auto;
   }
   .button-area button {margin-left: 10px;}
+  footer .smp {display: none;}
+  footer div {margin: auto;}
 }
 
 @media screen and (max-width: 400px) {
@@ -194,20 +203,12 @@ footer a:hover .fas {color: #ff0000;}
 
 /* ダークモード対応CSS */
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #1F1F1F;
-  }
-  img {
-    filter: brightness(0) invert(1);
-  }
-  .search-area #window {
-    border-color: #333;
-  }
+  body {background-color: #1F1F1F;}
+  img {filter: brightness(0) invert(1);}
+  .search-area #window {border-color: #333;}
   footer {
     background-color: #282828;
     outline-color: #333;
   }
-  footer a {
-    color: #fff;
-  }
+  footer p, footer p a {color: #fff;}
 }
