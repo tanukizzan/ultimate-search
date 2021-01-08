@@ -22,9 +22,12 @@
   <header>
     <img src="./images/ultimate.png" alt="Ultimate search">
 
-    <select name="" id="pulldown">
-      <option value="null">キーワードを選択...</option>
-    </select>
+    <div class="select-box">
+      <select name="" id="pulldown">
+        <option value="null">キーワードを選択...</option>
+      </select>
+      <button id="clear"><i class="fas fa-times"></i></button>
+    </div>
 
     <form class="search-area" onsubmit="return false;">
       <input type="search" name="search" id="window" autofocus>
@@ -67,10 +70,11 @@
       <i class="fas fa-random icon"></i>
       <button id="random" colspan="3">I'm Feeling Lucky</button>
     </div>
+    <div id="markdown"></div>
   </main>
 
   <footer>
-    <div class="smp">
+    <div>
       <p>日本</p>
     </div>
     <div>
@@ -79,6 +83,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="./script.js"></script>
 </body>
 

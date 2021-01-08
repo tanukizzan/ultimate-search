@@ -1,6 +1,7 @@
 let wordInput = document.getElementById('window');
 const speakButton = document.getElementById('speak-button');
 const pulldown = document.getElementById('pulldown');
+const clear = document.getElementById('clear');
 const list = [
   'Photoshop', 'Illustrator', 'Premiere Pro', 'Premiere Rush', 'After Effects', 'Adobe XD', 'CLIP STUDIO', 'Blender', 'Unity', 'iMovie', 'GarageBand', 'Google スライド', 'Google ドキュメント', 'Google スプレッドシート', 'Google サイト', 'Slack', 'HTML', 'CSS', 'JavaScript', 'Node.js', 'Python', 'C#', 'VS Code', 'Git', 'GitHub', 'Linux', 'OpenProcessing', 'Scratch', 'Arduino', 'micro:bit'
 ];
@@ -36,6 +37,10 @@ window.onload = () => {
     pulldown.appendChild(option);
   }
 }
+// pulldownをクリア
+clear.addEventListener('click', function() {
+  pulldown.selectedIndex = 0;
+})
 
 // google エリア
 // 0 google 検索

@@ -24,24 +24,37 @@ img {
 }
 
 /* キーワード選択メニュー */
-#pulldown {
+.select-box {
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+}
+
+.select-box #pulldown, .select-box #clear {
+  border: solid 1px #dfe1e5;
+  background-color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.select-box #pulldown {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  display: block;
-  text-align: center;
-  margin: auto;
-  padding: 0.8rem 1.2rem;
-  outline: none;
-  border: solid 1px #dfe1e5;
-  cursor: pointer;
-  border-radius: 30px;
-  margin-bottom: 1rem;
-  background-image: linear-gradient(45deg, transparent 50%, rgba(0,0,0,0.4) 50%),  linear-gradient(135deg, rgba(0,0,0,0.4) 50%, transparent 50%);
+  border-right: none;
+  padding: 0.8rem 0.6rem 0.8rem 1.2rem;
+  border-radius: 30px 0 0 30px;
+  background-image: linear-gradient(45deg, transparent 50%, #5F6368 50%),  linear-gradient(135deg, #5F6368 50%, transparent 50%);
   background-size: 5px 5px, 5px 5px;
   background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
   background-repeat: no-repeat;
-  background-color: #fff;
+}
+
+.select-box #clear {
+  padding: 0.8rem 1.2rem 0.8rem 0.6rem;
+  border-left: none;
+  border-radius: 0 30px 30px 0;
+  color: #5F6368;
 }
 
 /* 検索窓 */
@@ -96,6 +109,8 @@ main {
 .button-area {margin-top: 0.5rem;}
 
 .button-area .icon, .button-area button {
+  display: inline-block;
+  vertical-align: middle;
   color: #5F6368;
   background-color: #F2F2F2;
   text-decoration: none;
@@ -147,6 +162,18 @@ input[type=checkbox]:checked + label .icon {background-color: #7cfc00;}
 #instagram:hover {color: #fff; background: linear-gradient(135deg, #427eff 0%, #f13f79 80%);}
 #facebook:hover {color: #fff; background: #3b5998;}
 #note:hover {color: #fff; background: #41C9B4;}
+#random:hover{
+  color: #fff;
+  background: linear-gradient(45deg, #bf0000, #ff0000, #ff0033, #ff9900, #FBBC05, #1da1f2, #41C9B4, #34A853, #008274, #3B5998, #001789);
+  background-size: 1500% 1500%;
+  animation: gradation 10s ease infinite;
+}
+   
+@keyframes gradation {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
 /* フッター */
 footer {
@@ -167,10 +194,9 @@ footer div {
   margin: 0 1rem;
 }
 
-footer p, footer p a {
-  color: #5F6368;
-  margin: 1rem;
-}
+footer p, footer p a {color: #5F6368;}
+
+footer p {margin: 1rem;}
 
 footer p a {
   cursor: pointer;
@@ -193,8 +219,10 @@ footer p a:hover {text-decoration: underline;}
     flex: 0 0 auto;
   }
   .button-area button {margin-left: 10px;}
-  footer .smp {display: none;}
-  footer div {margin: auto;}
+  footer {justify-content: space-between;}
+  footer div {
+    justify-content: space-between;
+  }
 }
 
 @media screen and (max-width: 400px) {
