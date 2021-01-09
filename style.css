@@ -20,7 +20,7 @@ header {
 /* search ロゴ */
 img {
   display: block;
-  margin: 4rem auto 2rem auto;
+  margin: 5rem auto 2rem auto;
 }
 
 /* キーワード選択メニュー */
@@ -106,11 +106,15 @@ main {
   flex: 1;
 }
 
-.button-area {margin-top: 0.5rem;}
+.button-area {
+  margin-top: 8px;
+  font-size: 0;
+}
 
 .button-area .icon, .button-area button {
   display: inline-block;
   vertical-align: middle;
+  font-size: 1rem;
   color: #5F6368;
   background-color: #F2F2F2;
   text-decoration: none;
@@ -131,7 +135,7 @@ main {
 .button-area button {
   padding: 0 1.2rem;
   line-height: 3rem;
-  margin-left: 5px;
+  margin-left: 8px;
   cursor: pointer;
   border-radius: 4px;
   overflow-wrap : break-word;
@@ -207,6 +211,7 @@ footer p a:hover {text-decoration: underline;}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
+  img {margin-top: 3rem;}
   main {
     display: flex;
     flex-wrap: wrap;
@@ -218,7 +223,6 @@ footer p a:hover {text-decoration: underline;}
     display: flex;
     flex: 0 0 auto;
   }
-  .button-area button {margin-left: 10px;}
   footer {justify-content: space-between;}
   footer div {
     justify-content: space-between;
