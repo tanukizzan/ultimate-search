@@ -1,7 +1,7 @@
 let wordInput = document.getElementById('window');
-const speakButton = document.getElementById('speak-button');
 const pulldown = document.getElementById('pulldown');
 const clear = document.getElementById('clear');
+const formClear = document.getElementById('form-clear');
 const list = [
   'Photoshop', 'Illustrator', 'Premiere Pro', 'Premiere Rush', 'After Effects', 'Adobe XD', 'CLIP STUDIO', 'Blender', 'Unity', 'iMovie', 'GarageBand', 'Google スライド', 'Google ドキュメント', 'Google スプレッドシート', 'Google サイト', 'Slack', 'HTML', 'CSS', 'JavaScript', 'Node.js', 'Python', 'C#', 'VS Code', 'Git', 'GitHub', 'Linux', 'OpenProcessing', 'Scratch', 'Arduino', 'micro:bit'
 ];
@@ -40,6 +40,13 @@ window.onload = () => {
 // pulldownをクリア
 clear.addEventListener('click', function() {
   pulldown.selectedIndex = 0;
+  wordInput.focus();
+})
+
+// 検索ボックスをクリア
+formClear.addEventListener('click', function() {
+  wordInput.value = '';
+  wordInput.focus();
 })
 
 // google エリア
@@ -232,6 +239,9 @@ button[12].onclick = () => {
     window.open(link + query + encodeURIComponent(target));
   } else if (wordInput.value.match(/^@/)) {
     window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+  } else if (wordInput.value.match(/^#/)) {
+    pulldown.selectedIndex = 0;
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
   } else if (hashtag.checked) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
@@ -252,6 +262,9 @@ button[13].onclick = () => {
     // window.open(link + '検索クエリ + encodeURIComponent(target));
   } else if (wordInput.value.match(/^@/)) {
     window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+  } else if (wordInput.value.match(/^#/)) {
+    pulldown.selectedIndex = 0;
+    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.slice(1)));
   } else if (hashtag.checked) {
     pulldown.selectedIndex = 0;
     window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value));
@@ -273,6 +286,9 @@ button[14].onclick = () => {
     window.open(link + query + encodeURIComponent(target));
   } else if (wordInput.value.match(/^@/)) {
     window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+  } else if (wordInput.value.match(/^#/)) {
+    pulldown.selectedIndex = 0;
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
   } else if (hashtag.checked) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
@@ -292,6 +308,9 @@ button[15].onclick = () => {
     window.open(link + 'search?context=note&q=' + encodeURIComponent(target));
   } else if (wordInput.value.match(/^@/)) {
     window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+  } else if (wordInput.value.match(/^#/)) {
+    pulldown.selectedIndex = 0;
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
   } else if (hashtag.checked) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
@@ -306,25 +325,4 @@ button[15].onclick = () => {
 random.onclick = () => {
   const randomLink = button[Math.floor(Math.random() * button.length)];
   randomLink.onclick();
-}
-
-// 音声入力
-SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
-const recognition = new SpeechRecognition();
-
-recognition.onend = () => {
-  speakButton.style.color = '#5F6368';
-}
-
-recognition.onresult = (event) => {
-  wordInput.value = event.results[0][0].transcript;
-}
-
-speakButton.onclick = () => {
-  if ('SpeechRecognition' in window) {
-    recognition.start();
-    speakButton.style.color = '#dc143c';
-  } else {
-    alert('お使いのブラウザでは対応していません。');
-  }
 }

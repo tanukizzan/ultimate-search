@@ -58,13 +58,13 @@ img {
 }
 
 /* 検索窓 */
-form input[type="search"] {-webkit-appearance:none;}
+form input[type="search"], form input[type="search"]::-webkit-search-cancel-button {-webkit-appearance:none;}
 
 .search-area #window {
   width: 100%;
   line-height: 2.4em;
   font-size: 1.2em;
-  padding: 0 42px;
+  padding: 0 36px 0 42px;
   border-radius: 30px;
   border: solid 1px #dfe1e5;
   outline: none;
@@ -83,22 +83,19 @@ form input[type="search"] {-webkit-appearance:none;}
 
 .search-area {position: relative;}
 
-.search-area .fa-search {
+.search-area .fa-search, .search-area #form-clear {
   position: absolute;
-  top: 1em;
-  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
   color: #5F6368;
 }
-
-.search-area .fa-microphone {
-  position: absolute;
-  bottom: 0.85em;
+.search-area .fa-search {left: 1em;}
+.search-area #form-clear {
   right: 1em;
   font-size: 18px;
-  color: #5F6368;
 }
 
-.search-area .fa-microphone:hover {cursor: pointer;}
+.search-area #form-clear:hover {cursor: pointer;}
 
 /* ボタンエリア */
 main {
@@ -224,9 +221,7 @@ footer p a:hover {text-decoration: underline;}
     flex: 0 0 auto;
   }
   footer {justify-content: space-between;}
-  footer div {
-    justify-content: space-between;
-  }
+  footer div {margin: 0 auto;}
 }
 
 @media screen and (max-width: 400px) {
