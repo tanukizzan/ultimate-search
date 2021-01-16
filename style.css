@@ -138,35 +138,29 @@ main {
   overflow-wrap : break-word;
 }
 
-.button-area button:hover {
+.button-area button:hover, .button-area #hashtag:hover {
   box-shadow: 0 0 3px #222;
   outline: 1px #222;
   color: #222;
   cursor: pointer;
 }
 
-label .icon {cursor: pointer;}
-
-input[type=checkbox] {display: none;}
-input[type=checkbox]:checked + label .icon {background-color: #7cfc00;}
-
 #gimages:hover {color: #222; background: #FBBC05;}
 #gmaps:hover {color: #fff; background: #34A853;}
 #gtrans:hover {color: #fff; background: #4285F4;}
 #youtube:hover {color: #fff; background: #ff0000;}
-#yahoo:hover {color: #fff; background: #ff0033;}
+#yahoo:hover, #y-shopping:hover {color: #fff; background: #ff0033;}
 #bing:hover {color: #fff; background: #008274;}
 #amazon:hover {color: #fff; background: #ff9900;}
 #rakuten:hover {color: #fff; background: #bf0000;}
-#kakaku:hover {color: #fff; background: #001789;}
 #twitter:hover {color: #fff; background: #1da1f2;}
 #instagram:hover {color: #fff; background: linear-gradient(135deg, #427eff 0%, #f13f79 80%);}
 #facebook:hover {color: #fff; background: #3b5998;}
 #note:hover {color: #fff; background: #41C9B4;}
 #random:hover{
   color: #fff;
-  background: linear-gradient(45deg, #bf0000, #ff0000, #ff0033, #ff9900, #FBBC05, #1da1f2, #41C9B4, #34A853, #008274, #3B5998, #001789);
-  background-size: 1500% 1500%;
+  background: linear-gradient(45deg, #bf0000, #ff0000, #ff0033, #ff9900, #FBBC05, #1da1f2, #41C9B4, #34A853, #008274, #3B5998, #4285F4);
+  background-size: 1200% 1200%;
   animation: gradation 10s ease infinite;
 }
    

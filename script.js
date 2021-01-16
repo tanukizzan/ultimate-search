@@ -17,7 +17,7 @@ const button = [
   document.getElementById('wiki'),
   document.getElementById('amazon'),
   document.getElementById('rakuten'),
-  document.getElementById('kakaku'),
+  document.getElementById('y-shopping'),
   document.getElementById('twitter'),
   document.getElementById('instagram'),
   document.getElementById('facebook'),
@@ -47,6 +47,19 @@ clear.addEventListener('click', function() {
 formClear.addEventListener('click', function() {
   wordInput.value = '';
   wordInput.focus();
+})
+
+// ハッシュタグ追加ボタン
+hashtag.addEventListener('click', function() {
+  if (wordInput.value.match(/^#/)) {
+    return;
+  } else if (wordInput.value.length > 0) {
+    wordInput.value = '#' + wordInput.value;
+    wordInput.focus();
+  } else {
+    wordInput.value = '#';
+    wordInput.focus();
+  }
 })
 
 // google エリア
@@ -118,6 +131,9 @@ button[4].onclick = () => {
     window.open(link);
   } else if (wordInput.value.length === 0) {
     window.open(link + 'results?q=' + encodeURIComponent(target));
+  } else if (wordInput.value.match(/^#/)) {
+    pulldown.selectedIndex = 0;
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
   } else if (target === 'null') {
     window.open(link + 'results?q=' + encodeURIComponent(wordInput.value));
   } else {
@@ -213,18 +229,18 @@ button[10].onclick = () => {
     window.open(link[1] + encodeURIComponent(target) + ' ' + encodeURIComponent(wordInput.value));
   }
 }
-// 11 kakaku.com
+// 11 yahoo shopping
 button[11].onclick = () => {
   const target = pulldown.value;
-  const link = 'https://kakaku.com/';
+  const link = 'https://shopping.yahoo.co.jp/';
   if (wordInput.value.length === 0 && target === 'null') {
     window.open(link);
   } else if (wordInput.value.length === 0) {
-    window.open(link + 'search_results/' + encodeURIComponent(target));
+    window.open(link + 'search?p=' + encodeURIComponent(target));
   } else if (target === 'null') {
-    window.open(link + 'search_results/' + encodeURIComponent(wordInput.value));
+    window.open(link + 'search?p=' + encodeURIComponent(wordInput.value));
   } else {
-    window.open(link + 'search_results/' + encodeURIComponent(target) + ' ' + encodeURIComponent(wordInput.value));
+    window.open(link + 'search?p=' + encodeURIComponent(target) + ' ' + encodeURIComponent(wordInput.value));
   }
 }
 
@@ -242,9 +258,6 @@ button[12].onclick = () => {
   } else if (wordInput.value.match(/^#/)) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
-  } else if (hashtag.checked) {
-    pulldown.selectedIndex = 0;
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
   } else if (target === 'null') {
     window.open(link + query + encodeURIComponent(wordInput.value));
   } else {
@@ -265,9 +278,6 @@ button[13].onclick = () => {
   } else if (wordInput.value.match(/^#/)) {
     pulldown.selectedIndex = 0;
     window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.slice(1)));
-  } else if (hashtag.checked) {
-    pulldown.selectedIndex = 0;
-    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value));
   } else if (target === 'null') {
     alert('現在Instagramのキーワード検索は日本国内で利用できません。解禁されるまではハッシュタグボタンを押してハッシュタグ検索をご利用ください。');
     // window.open(link + '検索クエリ' + encodeURIComponent(wordInput.value));
@@ -289,9 +299,6 @@ button[14].onclick = () => {
   } else if (wordInput.value.match(/^#/)) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
-  } else if (hashtag.checked) {
-    pulldown.selectedIndex = 0;
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
   } else if (target === 'null') {
     window.open(link + query + encodeURIComponent(wordInput.value));
   } else {
@@ -311,9 +318,6 @@ button[15].onclick = () => {
   } else if (wordInput.value.match(/^#/)) {
     pulldown.selectedIndex = 0;
     window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
-  } else if (hashtag.checked) {
-    pulldown.selectedIndex = 0;
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value));
   } else if (target === 'null') {
     window.open(link + 'search?context=note&q=' + encodeURIComponent(wordInput.value));
   } else {

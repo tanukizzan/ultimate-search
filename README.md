@@ -1,6 +1,6 @@
 # Ultimate search
 
-![logo](./images/ultimate.png)
+![logo](./images/ultimate.svg)
 
 https://app.tanukizzan.com/ultimate-search/
 
@@ -22,7 +22,8 @@ https://app.tanukizzan.com/ultimate-search/
 | ボタン名 | 機能 |
 | - | - |
 | Google 翻訳 | ・入力された言語を自動選択して日本語に翻訳します |
-| Twitter, Instagram, Facebook, note | ・先頭に@マークを入れるとその名前のアカウントに直接リンクします<br>・ハッシュタグボタンを押すとハッシュタグ付きの検索ができます |
+| ハッシュタグボタン | ・入力したキーワードの先頭にハッシュタグを追加します |
+| Twitter, Instagram, Facebook, note | ・先頭に@マークをつけて検索するとそのID名のアカウントに直接遷移します |
 | I'm Feeling Luckey | ・この中のサイトからランダムに検索します |
 | その他のボタン | ・特別な機能はありません |
 
@@ -57,8 +58,8 @@ Google Chrome標準の検索履歴機能に対応しています。
 ## 推奨環境
 
 **最新の"Google Chrome"を推奨します。**  
-モダンブラウザであれば、検索履歴が残らない場合がありますがそれ以外の機能はすべて使用できると思います。  
-※IEでは使用できません。
+モダンブラウザであれば、検索履歴が残らない場合がありますがそれ以外の機能はすべて利用できると思います。  
+※IEでは利用できません。
 
 ## Ultimate searchの元となったサイトたち
 
