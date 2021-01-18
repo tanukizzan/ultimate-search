@@ -48,6 +48,11 @@ formClear.addEventListener('click', function() {
   wordInput.value = '';
   wordInput.focus();
 })
+// ダブルクリックでプルダウンもクリア
+formClear.addEventListener('dblclick', function() {
+  pulldown.selectedIndex = 0;
+  wordInput.focus();
+})
 
 // ハッシュタグ追加ボタン
 hashtag.addEventListener('click', function() {
