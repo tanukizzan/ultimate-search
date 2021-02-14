@@ -33,7 +33,6 @@ img {
 .select-box #pulldown, .select-box #clear {
   border: solid 1px #dfe1e5;
   background-color: #fff;
-  outline: none;
   cursor: pointer;
 }
 
@@ -91,8 +90,10 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
 }
 .search-area .fa-search {left: 1em;}
 .search-area #form-clear {
-  right: 1em;
+  right: 0.7em;
   font-size: 18px;
+  background: none;
+  border: none;
 }
 
 .search-area #form-clear:hover {cursor: pointer;}
@@ -116,11 +117,10 @@ main {
   background-color: #F2F2F2;
   text-decoration: none;
   border: none;
-  outline: none;
   transition: .3s;
 }
 
-.button-area .icon {
+.button-area .icon, .button-area #hashtag {
   text-align: center;
   font-size: 20px;
   width: 3rem;
@@ -128,8 +128,11 @@ main {
   border-radius: 50%;
   margin: auto;
 }
+.button-area #hashtag {
+  padding: 0;
+}
 
-.button-area button {
+.button-area button:not(#hashtag) {
   padding: 0 1.2rem;
   line-height: 3rem;
   margin-left: 8px;
@@ -140,7 +143,6 @@ main {
 
 .button-area button:hover, .button-area #hashtag:hover {
   box-shadow: 0 0 3px #222;
-  outline: 1px #222;
   color: #222;
   cursor: pointer;
 }
@@ -199,6 +201,14 @@ footer p a {
 }
 
 footer p a:hover {text-decoration: underline;}
+
+.select-box #pulldown:not(:focus-visible), 
+.select-box #clear:not(:focus-visible), 
+.search-area #form-clear:not(:focus-visible), 
+.button-area .icon:focus:not(:focus-visible), 
+.button-area button:focus:not(:focus-visible) {
+  outline: none;
+}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
