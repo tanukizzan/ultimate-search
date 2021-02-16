@@ -80,12 +80,11 @@ button[0].onclick = () => {
     window.open(google + query + encodeURIComponent(pulldown.value) + ' ' + encodeURIComponent(wordInput.value));
   }
 }
-wordInput.addEventListener('keypress', onkeypress);
-function onkeypress(event) {
-  if (event.keyCode === 13) {
+wordInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
     button[0].onclick();
   }
-}
+});
 // 1 google 画像
 button[1].onclick = () => {
   if (wordInput.value.length === 0 && pulldown.value === 'null') {

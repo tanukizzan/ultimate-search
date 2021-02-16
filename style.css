@@ -90,7 +90,7 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
 }
 .search-area .fa-search {left: 1em;}
 .search-area #form-clear {
-  right: 0.7em;
+  right: 1em;
   font-size: 18px;
   background: none;
   border: none;
