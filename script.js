@@ -311,6 +311,5 @@ button[15].onclick = () => {
 // I'm feeling lucky ランダムに表示
 random.onclick = () => {
   const randomLink = button[Math.floor(Math.random() * button.length)];
-  // randomLink.onclick();
-  console.log(randomLink)
+  randomLink.onclick();
 }
