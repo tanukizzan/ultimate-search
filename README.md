@@ -7,6 +7,8 @@ https://app.tanukizzan.com/ultimate-search/
 16個のサイトを1つのページで検索できるサイトです。  
 読み方は「アルティメットサーチ」です。
 
+Qiita記事：https://qiita.com/Tanukizzan/items/ffc2e11d8c7cb6f11e27
+
 ## 使い方
 
 検索ボックスに検索したいキーワードを入力して、検索したいサイトのボタンを押すだけで検索できます。

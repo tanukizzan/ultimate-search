@@ -25,7 +25,7 @@ const button = [
 ];
 const random = document.getElementById('random');
 const hashtag = document.getElementById('hashtag');
-const google = 'http://www.google.co.jp/';
+const google = 'https://www.google.co.jp/';
 const query = 'search?q=';
 
 // pulldownに中身を出力
