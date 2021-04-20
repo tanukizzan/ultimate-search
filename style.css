@@ -1,4 +1,7 @@
-html {font-size: 16px;}
+html {
+  position: relative;
+  font-size: 16px;
+}
 
 body {
   background: #fff;
@@ -9,6 +12,11 @@ body {
   min-height: 100vh;
   table-layout: fixed;
   user-select: none;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 header {
@@ -30,30 +38,28 @@ img {
   margin: 1rem auto;
 }
 
-.select-box #pulldown, .select-box #clear {
+.select-box .pulldown-button {
+  position: relative;
   border: solid 1px #dfe1e5;
   background-color: #fff;
   cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  transition: .3s;
 }
-
-.select-box #pulldown {
+.select-box .pulldown-button p {margin: 0;}
+.select-box .pulldown-button #pulldown {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-right: none;
-  padding: 0.8rem 0.6rem 0.8rem 1.2rem;
-  border-radius: 30px 0 0 30px;
-  background-image: linear-gradient(45deg, transparent 50%, #5F6368 50%),  linear-gradient(135deg, #5F6368 50%, transparent 50%);
-  background-size: 5px 5px, 5px 5px;
-  background-position: calc(100% - 15px) 50%, calc(100% - 10px) 50%;
-  background-repeat: no-repeat;
-}
-
-.select-box #clear {
-  padding: 0.8rem 1.2rem 0.8rem 0.6rem;
-  border-left: none;
-  border-radius: 0 30px 30px 0;
-  color: #5F6368;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 /* 検索窓 */
@@ -70,7 +76,7 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
   transition: .3s;
 }
 
-#window:hover, #window:focus {box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);}
+.select-box .pulldown-button:hover, .select-box .pulldown-button:focus, #window:hover, #window:focus {box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);}
 
 /* autocomplete時の背景色無効 */
 @keyframes onAutoFillStart { from {} to {}}
@@ -153,6 +159,7 @@ main {
 #youtube:hover {color: #fff; background: #ff0000;}
 #yahoo:hover, #y-shopping:hover {color: #fff; background: #ff0033;}
 #bing:hover {color: #fff; background: #008274;}
+#duck:hover {color: #fff; background: #e37151;}
 #amazon:hover {color: #fff; background: #ff9900;}
 #rakuten:hover {color: #fff; background: #bf0000;}
 #twitter:hover {color: #fff; background: #1da1f2;}
@@ -161,7 +168,7 @@ main {
 #note:hover {color: #fff; background: #41C9B4;}
 #random:hover{
   color: #fff;
-  background: linear-gradient(45deg, #bf0000, #ff0000, #ff0033, #ff9900, #FBBC05, #1da1f2, #41C9B4, #34A853, #008274, #3B5998, #4285F4);
+  background: linear-gradient(45deg, #bf0000, #ff0000, #ff0033, #e37151, #ff9900, #FBBC05, #1da1f2, #41C9B4, #34A853, #008274, #3B5998, #4285F4);
   background-size: 1200% 1200%;
   animation: gradation 10s ease infinite;
 }
@@ -195,20 +202,60 @@ footer p, footer p a {color: #5F6368;}
 
 footer p {margin: 1rem;}
 
-footer p a {
+footer p a, footer #edit {
   cursor: pointer;
   text-decoration: none;
 }
 
-footer p a:hover {text-decoration: underline;}
+footer p a:hover, footer #edit:hover {text-decoration: underline;}
 
-.select-box #pulldown:not(:focus-visible), 
-.select-box #clear:not(:focus-visible), 
+.select-box .pulldown-button:not(:focus-visible), 
 .search-area #form-clear:not(:focus-visible), 
 .button-area .icon:focus:not(:focus-visible), 
 .button-area button:focus:not(:focus-visible) {
   outline: none;
 }
+
+/* ダイアログ */
+#dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 2rem;
+  width: 40%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+.close {display: none;}
+.open {display: block;}
+#dialog h2 {margin-top: 0;}
+#dialog #edit-list {
+  width: 100%;
+  resize: vertical;
+}
+#dialog button {
+  display: inline-block;
+  vertical-align: middle;
+  color: #5F6368;
+  font-size: 1rem;
+  background-color: #F2F2F2;
+  text-decoration: none;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: .3s;
+}
+#dialog button:hover {
+  box-shadow: 0 0 3px #222;
+}
+#dialog #save-list {
+  background-color: #4169e1;
+  color: #fff;
+}
+#dialog #resset-list {color: #ff0000;}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
@@ -237,6 +284,14 @@ footer p a:hover {text-decoration: underline;}
   body {background-color: #1F1F1F;}
   img {filter: brightness(0) invert(1);}
   .search-area #window {border-color: #333;}
+  .select-box .pulldown-button, .button-area .icon, .button-area button {
+    color: #fff;
+    background-color: #444;
+  }
+  .select-box .pulldown-button:hover, .select-box .pulldown-button:focus, .button-area button:hover, .button-area #hashtag:hover {
+    color: #5F6368;
+    background-color: #F2F2F2;
+  }
   footer {
     background-color: #282828;
     outline-color: #333;

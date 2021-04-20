@@ -23,10 +23,12 @@
     <img src="./images/ultimate.svg" alt="Ultimate search" width="320" height="auto">
 
     <div class="select-box">
-      <select name="" id="pulldown">
-        <option value="null">キーワードを選択...</option>
-      </select>
-      <button id="clear"><i class="fas fa-times"></i></button>
+      <div class="pulldown-button">
+        <p>キーワードボックス</p>
+        <select name="pulldown" id="pulldown">
+          <option hidden></option>
+        </select>
+      </div>
     </div>
 
     <form class="search-area" onsubmit="return false;">
@@ -75,12 +77,23 @@
   <footer>
     <div>
       <p>日本</p>
+      <p id="edit">キーワードボックスを編集</p>
     </div>
     <div>
       <p><a href="https://app.tanukizzan.com" target="_blank" rel="noopener noreferrer">他のアプリ</a></p>
       <p><a href="https://github.com/tanukizzan/ultimate-search/" target="_blank" rel="noopener noreferrer">このサイトについて</a></p>
     </div>
   </footer>
+
+  <div id="dialog" class="close">
+    <h2>キーワードボックスを編集...</h2>
+    <form action="">
+      <textarea name="editPulldown" id="edit-list" rows="10"></textarea>
+    </form>
+    <button id="save-list">ブラウザに保存</button>
+    <button id="close-dialog">キャンセル</button>
+    <button id="resset-list">ブラウザから削除</button>
+  </div>
 
   <script src="./script.js"></script>
 </body>
