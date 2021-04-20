@@ -273,6 +273,9 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
   }
   footer {justify-content: space-between;}
   footer div {margin: 0 auto;}
+  #dialog {
+    width: 85%;
+  }
 }
 
 @media screen and (max-width: 400px) {
