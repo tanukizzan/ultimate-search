@@ -3,7 +3,7 @@ const pulldown = document.getElementById('pulldown');
 const randomSelect = document.getElementById('random-select');
 const formClear = document.getElementById('form-clear');
 let defaultList = [
-  'Photoshop', 'Illustrator', 'Premiere Pro', 'Premiere Rush', 'After Effects', 'Adobe XD', 'CLIP STUDIO', 'Blender', 'Unity', 'iMovie', 'GarageBand', 'Google スライド', 'Google ドキュメント', 'Google スプレッドシート', 'Google サイト', 'PowerPoint', 'Word', 'Excel', 'Slack', 'HTML', 'CSS', 'JavaScript', 'Node.js', 'Python', 'C#', 'PHP', 'WordPress', 'VS Code', 'Git', 'GitHub', 'Linux', 'OpenProcessing', 'Scratch', 'Arduino', 'micro:bit'
+  'Photoshop', 'Illustrator', 'Premiere Pro', 'Premiere Rush', 'After Effects', 'Adobe XD', 'Blender', 'Unity', 'iMovie', 'GarageBand', 'Google スライド', 'Google ドキュメント', 'Google スプレッドシート', 'Google サイト', 'PowerPoint', 'Word', 'Excel', 'Slack', 'HTML', 'CSS', 'JavaScript', 'Node.js', 'Python', 'C#', 'PHP', 'WordPress', 'VS Code', 'Git', 'GitHub', 'Linux'
 ];
 const button = [
   document.getElementById('google'),
@@ -27,9 +27,10 @@ const random = document.getElementById('random');
 const hashtag = document.getElementById('hashtag');
 const edit = document.getElementById('edit');
 const dialog = document.getElementById('dialog');
-const closeDialog = document.getElementById('close-dialog');
+const dialogBg = document.getElementById('dialog-bg');
 const editList = document.getElementById('edit-list');
 const saveList = document.getElementById('save-list');
+const closeDialog = document.getElementById('close-dialog');
 const ressetList = document.getElementById('resset-list');
 
 const google = 'https://www.google.co.jp/';
@@ -54,25 +55,36 @@ function pulldownCreate() {
   }
 }
 
-// pulldownを編集してwebstorageに保存
+// 検索設定を開く
 edit.addEventListener('click', () => {
   dialog.classList.remove('close');
   dialog.classList.add('open');
 })
+// キャンセルボタンで検索設定を閉じる
 closeDialog.addEventListener('click', () => {
   dialog.classList.remove('open');
   dialog.classList.add('close');
 })
+// 背景クリックで検索設定を閉じる
+dialogBg.addEventListener('click', () => {
+  dialog.classList.remove('open');
+  dialog.classList.add('close');
+})
+// 編集したリストをlocalListに保存
 saveList.addEventListener('click', () => {
   const listItem = editList.value.split(',');
   let setJson = JSON.stringify(listItem);
   localStorage.setItem('localList', setJson);
   location.reload();
 })
+// 検索設定をブラウザから削除
 ressetList.addEventListener('click', () => {
-  if (confirm('キーワードボックスをブラウザから削除します。再読み込みするとデフォルトのリストが設定されます。よろしいですか？')) {
+  if (confirm('キーワードボックスをブラウザから削除します。再読み込みするとデフォルトの設定が適用されます。よろしいですか？')) {
     localStorage.removeItem('localList');
     editList.value = '';
+    while (pulldown.firstChild) {
+      pulldown.removeChild(pulldown.firstChild);
+    };
     dialog.classList.remove('open');
     dialog.classList.add('close');
     alert('ご利用ありがとうございました！');
