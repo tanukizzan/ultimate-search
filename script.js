@@ -126,7 +126,7 @@ button[0].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(google);
   } else {
-    window.open(google + query + encodeURIComponent(wordInput.value));
+    window.open(google + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 wordInput.addEventListener('keypress', function(event) {
@@ -139,7 +139,7 @@ button[1].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(google + 'imghp');
   } else {
-    window.open(google + query + encodeURIComponent(wordInput.value) + '&tbm=isch');
+    window.open(google + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')) + '&tbm=isch');
   }
 }
 // 2 google 地図
@@ -147,7 +147,7 @@ button[2].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(google + 'maps');
   } else {
-    window.open(google + 'maps/search/' + encodeURIComponent(wordInput.value));
+    window.open(google + 'maps/search/' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 3 google 翻訳
@@ -157,7 +157,7 @@ button[3].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + translate + encodeURIComponent(wordInput.value));
+    window.open(link + translate + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 4 youtube
@@ -166,9 +166,9 @@ button[4].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    window.open(link + 'results?q=' + encodeURIComponent(wordInput.value));
+    window.open(link + 'results?q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 
@@ -179,7 +179,7 @@ button[5].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link[0]);
   } else {
-    window.open(link[1] + 'search?p=' + encodeURIComponent(wordInput.value));
+    window.open(link[1] + 'search?p=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 6 bing
@@ -188,7 +188,7 @@ button[6].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + query + encodeURIComponent(wordInput.value));
+    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 7 duckduckgo
@@ -197,7 +197,7 @@ button[7].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + '&q=' + encodeURIComponent(wordInput.value));
+    window.open(link + '&q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 8 wikipedia
@@ -206,7 +206,7 @@ button[8].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + '特別:検索/' + encodeURIComponent(wordInput.value));
+    window.open(link + '特別:検索/' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 
@@ -217,7 +217,7 @@ button[9].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + 's?k=' + encodeURIComponent(wordInput.value));
+    window.open(link + 's?k=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 
@@ -227,7 +227,7 @@ button[10].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link[0]);
   } else {
-    window.open(link[1] + encodeURIComponent(wordInput.value));
+    window.open(link[1] + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 11 yahoo shopping
@@ -236,7 +236,7 @@ button[11].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else {
-    window.open(link + 'search?p=' + encodeURIComponent(wordInput.value));
+    window.open(link + 'search?p=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 
@@ -247,11 +247,11 @@ button[12].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    window.open(link + query + encodeURIComponent(wordInput.value));
+    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 13 instagram
@@ -260,12 +260,11 @@ button[13].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    alert('現在Instagramのキーワード検索は日本国内で利用できません。解禁されるまではハッシュタグボタンを押してハッシュタグ検索をご利用ください。');
-    // window.open(link + '検索クエリ' + encodeURIComponent(wordInput.value));
+    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.replace(/[\p{C}\p{Z}]/gu, '')));
   }
 }
 // 14 facebook
@@ -274,11 +273,11 @@ button[14].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    window.open(link + query + encodeURIComponent(wordInput.value));
+    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 // 15 note
@@ -287,11 +286,11 @@ button[15].onclick = () => {
   if (wordInput.value.length === 0) {
     window.open(link);
   } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.slice(1)));
+    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    window.open(link + 'search?context=note&q=' + encodeURIComponent(wordInput.value));
+    window.open(link + 'search?context=note&q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
   }
 }
 
