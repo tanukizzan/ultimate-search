@@ -33,9 +33,6 @@ const saveList = document.getElementById('save-list');
 const closeDialog = document.getElementById('close-dialog');
 const ressetList = document.getElementById('resset-list');
 
-const google = 'https://www.google.co.jp/';
-const query = 'search?q=';
-
 window.onload = () => {
   if (localStorage.getItem('localList') === null) {
     let setJson = JSON.stringify(defaultList);
@@ -123,179 +120,157 @@ hashtag.addEventListener('click', function() {
 // google エリア
 // 0 google 検索
 button[0].onclick = () => {
-  if (wordInput.value.length === 0) {
-    window.open(google);
-  } else {
-    window.open(google + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.google.co.jp/';
+  const query = 'search?q=';
+  search1(url, query);
 }
-wordInput.addEventListener('keypress', function(event) {
+wordInput.addEventListener('keypress', (event) => {
   if (event.key === 'Enter') {
     button[0].onclick();
   }
 });
 // 1 google 画像
 button[1].onclick = () => {
-  if (wordInput.value.length === 0) {
-    window.open(google + 'imghp');
-  } else {
-    window.open(google + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')) + '&tbm=isch');
-  }
+  const url = 'https://www.google.co.jp/';
+  const query = ['imghp', 'search?q=', '&tbm=isch'];
+  search2(url, query);
 }
 // 2 google 地図
 button[2].onclick = () => {
-  if (wordInput.value.length === 0) {
-    window.open(google + 'maps');
-  } else {
-    window.open(google + 'maps/search/' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.google.co.jp/';
+  const query = ['maps', 'maps/search/', ''];
+  search2(url, query);
 }
 // 3 google 翻訳
 button[3].onclick = () => {
-  const translate = '?sl=auto&tl=ja&text=';
-  const link = 'https://translate.google.co.jp/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + translate + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://translate.google.co.jp/';
+  const query = '?sl=auto&tl=ja&text=';
+  search1(url, query);
 }
 // 4 youtube
 button[4].onclick = () => {
-  const link = 'https://www.youtube.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
-  } else {
-    window.open(link + 'results?q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.youtube.com/';
+  const query = ['hashtag/', 'results?q='];
+  search4(url, query);
 }
 
 // その他検索エリア
 // 5 yahoo
 button[5].onclick = () => {
-  const link = ['https://www.yahoo.co.jp/', 'https://search.yahoo.co.jp/'];
-  if (wordInput.value.length === 0) {
-    window.open(link[0]);
-  } else {
-    window.open(link[1] + 'search?p=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = ['https://www.yahoo.co.jp/', 'https://search.yahoo.co.jp/'];
+  const query = 'search?p=';
+  search3(url, query);
 }
 // 6 bing
 button[6].onclick = () => {
-  const link = 'https://www.bing.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.bing.com/';
+  const query = 'search?q=';
+  search1(url, query);
 }
 // 7 duckduckgo
 button[7].onclick = () => {
-  const link = 'https://duckduckgo.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + '&q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://duckduckgo.com/';
+  const query = '?q=';
+  search1(url, query);
 }
 // 8 wikipedia
 button[8].onclick = () => {
-  const link = 'https://ja.wikipedia.org/wiki/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + '特別:検索/' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://ja.wikipedia.org/wiki/';
+  const query = '特別:検索/';
+  search1(url, query);
 }
 
 // 買い物エリア
 // 9 amazon
 button[9].onclick = () => {
-  const link = 'https://www.amazon.co.jp/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + 's?k=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.amazon.co.jp/';
+  const query = 's?k=';
+  search1(url, query);
 }
 
 // 10 rakuten
 button[10].onclick = () => {
-  const link = ['https://rakuten.co.jp/', 'https://search.rakuten.co.jp/search/mall/'];
-  if (wordInput.value.length === 0) {
-    window.open(link[0]);
-  } else {
-    window.open(link[1] + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = ['https://www.rakuten.co.jp/', 'https://search.rakuten.co.jp/search/mall/'];
+  const query = '';
+  search3(url, query);
 }
 // 11 yahoo shopping
 button[11].onclick = () => {
-  const link = 'https://shopping.yahoo.co.jp/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else {
-    window.open(link + 'search?p=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://shopping.yahoo.co.jp/';
+  const query = 'search?p=';
+  search1(url, query);
 }
 
 // snsエリア
 // 12 twitter
 button[12].onclick = () => {
-  const link = 'https://twitter.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
-  } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
-  } else {
-    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://twitter.com/';
+  const query = ['hashtag/', 'search?q='];
+  search4(url, query);
 }
 // 13 instagram
 button[13].onclick = () => {
-  const link = 'https://instagram.com/';
+  const url = 'https://www.instagram.com/';
+  const query = 'explore/tags/';
   if (wordInput.value.length === 0) {
-    window.open(link);
+    window.open(url);
   } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
+    window.open(url + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
+    window.open(url + query + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
-    window.open(link + 'explore/tags/' + encodeURIComponent(wordInput.value.replace(/[\p{C}\p{Z}]/gu, '')));
+    window.open(url + query + encodeURIComponent(wordInput.value.replace(/[\p{C}\p{Z}]/gu, '')));
   }
 }
 // 14 facebook
 button[14].onclick = () => {
-  const link = 'https://facebook.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
-  } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
-  } else {
-    window.open(link + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://www.facebook.com/';
+  const query = ['hashtag/', 'search?q='];
+  search4(url, query);
 }
 // 15 note
 button[15].onclick = () => {
-  const link = 'https://note.com/';
-  if (wordInput.value.length === 0) {
-    window.open(link);
-  } else if (wordInput.value.match(/^@/)) {
-    window.open(link + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
-  } else if (wordInput.value.match(/^#/)) {
-    window.open(link + 'hashtag/' + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
-  } else {
-    window.open(link + 'search?context=note&q=' + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
-  }
+  const url = 'https://note.com/';
+  const query = ['hashtag/', 'search?context=note&q='];
+  search4(url, query);
 }
 
 // I'm feeling lucky ランダムに表示
 random.onclick = () => {
   const randomLink = button[Math.floor(Math.random() * button.length)];
   randomLink.onclick();
+}
+
+// 検索機能
+const search1 = (url, query) => {
+  if (wordInput.value.length === 0) {
+    window.open(url);
+  } else {
+    window.open(url + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
+  }
+}
+const search2 = (url, query) => {
+  if (wordInput.value.length === 0) {
+    window.open(url + query[0]);
+  } else {
+    window.open(url + query[1] + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')) + query[2]);
+  }
+}
+const search3 = (url, query) => {
+  if (wordInput.value.length === 0) {
+    window.open(url[0]);
+  } else {
+    window.open(url[1] + query + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
+  }
+}
+const search4 = (url, query) => {
+  if (wordInput.value.length === 0) {
+    window.open(url);
+  } else if (wordInput.value.match(/^@/)) {
+    window.open(url + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
+  } else if (wordInput.value.match(/^#/)) {
+    window.open(url + query[0] + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
+  } else {
+    window.open(url + query[1] + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
+  }
 }
