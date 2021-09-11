@@ -19,7 +19,10 @@ body {
   box-sizing: border-box;
 }
 
-header {
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 90%;
   max-width: 40em;
   margin: auto;
@@ -28,14 +31,14 @@ header {
 /* search ロゴ */
 img {
   display: block;
-  margin: 5rem auto 2rem auto;
+  margin: auto;
 }
 
 /* キーワードボックス */
 .select-box {
   display: flex;
   justify-content: center;
-  margin: 1rem auto;
+  margin: 2rem auto 1rem auto;
 }
 
 .select-box .pulldown-button {
@@ -105,17 +108,20 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
 .search-area #form-clear:hover {cursor: pointer;}
 
 /* ボタンエリア */
-main {
-  margin: 1rem auto 3rem auto;
+.button-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
   flex: 1;
 }
 
-.button-area {
+.button-row {
   margin-top: 8px;
   font-size: 0;
 }
 
-.button-area .icon, .button-area button {
+.button-row .icon, .button-row button {
   display: inline-block;
   vertical-align: middle;
   font-size: 1rem;
@@ -123,10 +129,11 @@ main {
   background-color: #F2F2F2;
   text-decoration: none;
   border: none;
+  white-space: nowrap;
   transition: .3s;
 }
 
-.button-area .icon, .button-area #hashtag {
+.button-row .icon, .button-row #hashtag {
   text-align: center;
   font-size: 20px;
   width: 3rem;
@@ -134,11 +141,11 @@ main {
   border-radius: 50%;
   margin: auto;
 }
-.button-area #hashtag {
+.button-row #hashtag {
   padding: 0;
 }
 
-.button-area button:not(#hashtag) {
+.button-row button:not(#hashtag) {
   padding: 0 1.2rem;
   line-height: 3rem;
   margin-left: 8px;
@@ -147,7 +154,7 @@ main {
   overflow-wrap : break-word;
 }
 
-.button-area button:hover, .button-area #hashtag:hover {
+.button-row button:hover, .button-row #hashtag:hover {
   box-shadow: 0 0 3px #222;
   color: #222;
   cursor: pointer;
@@ -211,8 +218,8 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
 
 .select-box .pulldown-button:not(:focus-visible), 
 .search-area #form-clear:not(:focus-visible), 
-.button-area .icon:focus:not(:focus-visible), 
-.button-area button:focus:not(:focus-visible) {
+.button-row .icon:focus:not(:focus-visible), 
+.button-row button:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -269,15 +276,15 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
-  img {margin-top: 3rem;}
-  main {
+  .button-area {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    align-items: flex-start;
     overflow-x: auto;
-    width: 90%;
+    width: 100%;
   }
-  .button-area {
+  .button-row {
     display: flex;
     flex: 0 0 auto;
   }
@@ -285,8 +292,13 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
   footer div {margin: 0 auto;}
   .dialog-area {width: 85%;}
 }
-@media screen and (max-width: 400px) {
-  img {width: 100%;}
+@media screen and (max-height: 700px) {
+  img {
+    width: 90%;
+  }
+  main {
+    margin: 3rem auto;
+  }
 }
 @media screen and (max-width: 950px) and (min-width: 700px) {
   .dialog-area {width: 70%;}
@@ -297,11 +309,11 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
   body {background-color: #1F1F1F;}
   img {filter: brightness(0) invert(1);}
   .search-area #window {border-color: #333;}
-  .select-box .pulldown-button, .button-area .icon, .button-area button {
+  .select-box .pulldown-button, .button-row .icon, .button-row button {
     color: #fff;
     background-color: #444;
   }
-  .select-box .pulldown-button:hover, .select-box .pulldown-button:focus, .button-area button:hover, .button-area #hashtag:hover {
+  .select-box .pulldown-button:hover, .select-box .pulldown-button:focus, .button-row button:hover, .button-row #hashtag:hover {
     color: #5F6368;
     background-color: #F2F2F2;
   }
