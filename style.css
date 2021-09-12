@@ -31,9 +31,11 @@ main {
 }
 
 /* search ロゴ */
-img {
+#ultimate-logo {
   display: block;
   margin: auto;
+  width: 320px;
+  height: auto;
 }
 
 /* キーワードボックス */
@@ -295,12 +297,10 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
   .dialog-area {width: 85%;}
 }
 @media screen and (max-height: 700px) {
-  img {
-    width: 90%;
-  }
-  main {
-    margin: 3rem auto;
-  }
+  main {margin: 3rem auto;}
+}
+@media screen and (max-width: 400px) {
+  #ultimate-logo {width: 90%;}
 }
 @media screen and (max-width: 950px) and (min-width: 700px) {
   .dialog-area {width: 70%;}
@@ -309,7 +309,7 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
 /* ダークモード対応CSS */
 @media (prefers-color-scheme: dark) {
   body {background-color: #1F1F1F;}
-  img {filter: brightness(0) invert(1);}
+  #ultimate-logo {filter: brightness(0) invert(1);}
   .search-area #window {border-color: #333;}
   .select-box .pulldown-button, .button-row .icon, .button-row button {
     color: #fff;
