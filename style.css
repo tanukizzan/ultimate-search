@@ -76,6 +76,10 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
   width: 100%;
   line-height: 2.4em;
   font-size: 1.2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
   padding: 0 36px 0 42px;
   border-radius: 30px;
   border: solid 1px #dfe1e5;
@@ -92,6 +96,8 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
   animation-name: onAutoFillStart;
   transition: background-color 50000s ease-in-out 0s;
 }
+
+/* 検索窓アイコン */
 
 .search-area {position: relative;}
 
