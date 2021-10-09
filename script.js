@@ -25,6 +25,7 @@ const button = [
 ];
 const random = document.getElementById('random');
 const hashtag = document.getElementById('hashtag');
+const snsRow = document.getElementById('sns-row');
 const edit = document.getElementById('edit');
 const dialog = document.getElementById('dialog');
 const dialogBg = document.getElementById('dialog-bg');
@@ -34,12 +35,21 @@ const closeDialog = document.getElementById('close-dialog');
 const ressetList = document.getElementById('resset-list');
 
 window.onload = () => {
+  // キーワードボックスが空の場合デフォルトリストを挿入
   if (localStorage.getItem('localList') === null) {
     let setJson = JSON.stringify(defaultList);
     localStorage.setItem('localList', setJson);
   }
   pulldownCreate();
   editList.value = JSON.parse(localStorage.getItem('localList'));
+  // Liteモード用のクエリパラメータ設定
+  if (window.location.search === '?lite') {
+    document.title = 'Ultimate search Lite'
+    button[4].style.display = 'none';
+    button[5].style.display = 'none';
+    button[5].style.display = 'none';
+    snsRow.style.display = 'none';
+  }
 }
 // pulldownに中身を出力
 function pulldownCreate() {
