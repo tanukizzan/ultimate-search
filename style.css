@@ -5,7 +5,9 @@ html {
 }
 
 body {
-  background: #fff;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
   color: #222;
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   display: flex;
@@ -22,6 +24,7 @@ body {
 }
 
 main {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -313,21 +316,28 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
 }
 
 /* ダークモード対応CSS */
-@media (prefers-color-scheme: dark) {
-  body {background-color: #1F1F1F;}
-  #ultimate-logo {filter: brightness(0) invert(1);}
-  .search-area #window {border-color: #333;}
-  .select-box .pulldown-button, .button-row .icon, .button-row button {
-    color: #fff;
-    background-color: #444;
-  }
-  .select-box .pulldown-button:hover, .select-box .pulldown-button:focus, .button-row button:hover, .button-row #hashtag:hover {
-    color: #5F6368;
-    background-color: #F2F2F2;
-  }
-  footer {
-    background-color: #282828;
-    outline-color: #333;
-  }
-  footer p, footer p a {color: #fff;}
+.dark-mode {
+  background-color: #1F1F1F;
+}
+.dark-mode #menu-button, .dark-mode #ultimate-logo {
+  filter: brightness(0) invert(1);
+}
+.dark-mode .select-box .pulldown-button,
+.dark-mode .button-row .icon,
+.dark-mode .button-row button {
+  color: #fff;
+  background-color: #444;
+}
+.dark-mode .select-box .pulldown-button:hover,
+.dark-mode .select-box .pulldown-button:focus,
+.dark-mode .button-row button:hover {
+  color: #5F6368;
+  background-color: #F2F2F2;
+}
+.dark-mode footer {
+  background-color: #282828;
+  outline-color: #333;
+}
+.dark-mode footer p, .dark-mode footer p a {
+  color: #fff;
 }

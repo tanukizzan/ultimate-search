@@ -44,13 +44,36 @@ window.onload = () => {
   editList.value = JSON.parse(localStorage.getItem('localList'));
   // Liteモード用のクエリパラメータ設定
   if (window.location.search === '?lite') {
-    document.title = 'Ultimate search Lite'
+    document.title = 'Ultimate search: Lite'
     button[4].style.display = 'none';
     button[5].style.display = 'none';
     button[5].style.display = 'none';
     snsRow.style.display = 'none';
+  } else if (window.location.search === '?halloween') {
+    document.title = 'Ultimate search: Halloween';
+    document.body.style.backgroundImage = 'url(./images/background/halloween.jpg)';
+    document.body.classList.add('dark-mode');
   }
 }
+
+// ダークモード
+const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+const darkModeConfig = () => {
+  if (darkMode.matches) { // Dark
+    document.body.classList.add('dark-mode');
+  } else { // Light
+    document.body.classList.remove('dark-mode');
+  }
+};
+darkModeConfig();
+darkMode.addEventListener('change', () => {
+  if (window.location.search === '?halloween') {
+    return;
+  } else {
+    darkModeConfig();
+  }
+})
+
 // pulldownに中身を出力
 function pulldownCreate() {
   let list = JSON.parse(localStorage.getItem('localList'));
