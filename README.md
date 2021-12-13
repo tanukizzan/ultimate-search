@@ -17,6 +17,8 @@ Qiita記事：https://qiita.com/Tanukizzan/items/ffc2e11d8c7cb6f11e27
 
 [ライトモードを実装しました。URLの末尾に `?lite` をつけるとSNSボタンが非表示になります。](#liteモード)(2021/10/09)
 
+[イベントモードを実装しました。背景がハロウィンやクリスマス仕様になります。](#イベントモード)(2021/12/13)
+
 ## 使い方
 
 検索ボックスに検索したいキーワードを入力して、検索したいサイトのボタンを押すだけで検索できます。
@@ -50,6 +52,14 @@ YouTube, Yahoo!, Twitter, Instagram, Facebook, note のボタンを非表示に�
 ※ I'm Feeling Lucky ボタンでランダムに検索されるサイトは、Liteモードにかかわらず全てのサイトが対象になります。
 
 リンク： https://app.tanukizzan.com/ultimate-search/?lite
+
+## イベントモード
+
+背景がハロウィンやクリスマスなどの季節のイベント仕様になるモードです。URLの末尾にそれぞれのワードを加えることで機能します。（Liteモードと仕組みは同じです）
+
+Halloweenモード：https://app.tanukizzan.com/ultimate-search/?halloween
+
+Xmasモード：https://app.tanukizzan.com/ultimate-search/?xmas
 
 ## 検索設定の使い方
 

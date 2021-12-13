@@ -42,7 +42,7 @@ window.onload = () => {
   }
   pulldownCreate();
   editList.value = JSON.parse(localStorage.getItem('localList'));
-  // Liteモード用のクエリパラメータ設定
+  // Liteモード・イベントモード用のクエリパラメータ設定
   if (window.location.search === '?lite') {
     document.title = 'Ultimate search: Lite'
     button[4].style.display = 'none';
@@ -52,6 +52,10 @@ window.onload = () => {
   } else if (window.location.search === '?halloween') {
     document.title = 'Ultimate search: Halloween';
     document.body.style.backgroundImage = 'url(./images/background/halloween.jpg)';
+    document.body.classList.add('dark-mode');
+  } else if (window.location.search === '?xmas') {
+    document.title = 'Ultimate search: Xmas';
+    document.body.style.backgroundImage = 'url(./images/background/xmas.jpg)';
     document.body.classList.add('dark-mode');
   }
 }
@@ -67,7 +71,7 @@ const darkModeConfig = () => {
 };
 darkModeConfig();
 darkMode.addEventListener('change', () => {
-  if (window.location.search === '?halloween') {
+  if (window.location.search === '?halloween' || window.location.search === '?xmas') {
     return;
   } else {
     darkModeConfig();
