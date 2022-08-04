@@ -37,7 +37,7 @@ Qiita記事：https://qiita.com/Tanukizzan/items/ffc2e11d8c7cb6f11e27
 | - | - |
 | Google 翻訳 | ・入力された言語を自動選択して日本語に翻訳します |
 | ハッシュタグボタン | ・入力したキーワードの先頭にハッシュタグを追加します |
-| Twitter, Instagram, Facebook, note | ・先頭に@マークをつけて検索するとそのID名のアカウントに直接遷移します |
+| Twitter, Instagram, TikTok, note | ・先頭に@マークをつけて検索するとそのID名のアカウントに直接遷移します |
 | I'm Feeling Lucky | ・この中のサイトからランダムに検索します |
 
 ### Instagramについて
@@ -47,7 +47,7 @@ Qiita記事：https://qiita.com/Tanukizzan/items/ffc2e11d8c7cb6f11e27
 
 ### Liteモード
 
-YouTube, Yahoo!, Twitter, Instagram, Facebook, note のボタンを非表示にするモードです。URLの末尾に `?lite` をつけることで機能する隠しモードになっています。ついついSNSを開いてしまい時間を潰してしまうことで困っている方におすすめの機能です。
+YouTube, Yahoo!, Twitter, Instagram, TikTok, note のボタンを非表示にするモードです。URLの末尾に `?lite` をつけることで機能する隠しモードになっています。ついついSNSを開いてしまい時間を潰してしまうことで困っている方におすすめの機能です。
 
 ※ I'm Feeling Lucky ボタンでランダムに検索されるサイトは、Liteモードにかかわらず全てのサイトが対象になります。
 
