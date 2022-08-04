@@ -184,7 +184,11 @@ form input[type="search"], form input[type="search"]::-webkit-search-cancel-butt
 #rakuten:hover {color: #fff; background: #bf0000;}
 #twitter:hover {color: #fff; background: #1da1f2;}
 #instagram:hover {color: #fff; background: linear-gradient(135deg, #427eff 0%, #f13f79 80%);}
-#facebook:hover {color: #fff; background: #3b5998;}
+#tiktok:hover {
+  color: #fff;
+  background: #000000;
+  text-shadow: -1px -1px 0px #01F2EA, 1px 1px 0px #FF004F;
+}
 #note:hover {color: #fff; background: #41C9B4;}
 #random:hover{
   color: #fff;
@@ -289,6 +293,12 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
 
 /* スマホ用CSS */
 @media screen and (max-width: 700px) {
+  main {
+    width: 100%;
+  }
+  .search-area {
+    margin: auto 1.2rem;
+  }
   .button-area {
     display: flex;
     flex-wrap: wrap;
@@ -296,12 +306,12 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
     align-items: flex-start;
     overflow-x: auto;
     width: 100%;
+    padding: 0 1.2rem;
   }
   .button-row {
     display: flex;
     flex: 0 0 auto;
   }
-  footer {justify-content: space-between;}
   footer div {margin: 0 auto;}
   .dialog-area {width: 85%;}
 }
@@ -309,7 +319,7 @@ footer p a:hover, footer #edit:hover {text-decoration: underline;}
   main {margin: 3rem auto;}
 }
 @media screen and (max-width: 400px) {
-  #ultimate-logo {width: 90%;}
+  #ultimate-logo {width: 80%;}
 }
 @media screen and (max-width: 950px) and (min-width: 700px) {
   .dialog-area {width: 70%;}

@@ -20,7 +20,7 @@ const button = [
   document.getElementById('y-shopping'),
   document.getElementById('twitter'),
   document.getElementById('instagram'),
-  document.getElementById('facebook'),
+  document.getElementById('tiktok'),
   document.getElementById('note')
 ];
 const random = document.getElementById('random');
@@ -259,11 +259,11 @@ button[13].onclick = () => {
     window.open(url + query + encodeURIComponent(wordInput.value.replace(/[\p{C}\p{Z}]/gu, '')));
   }
 }
-// 14 facebook
+// 14 tiktok
 button[14].onclick = () => {
-  const url = 'https://www.facebook.com/';
-  const query = ['hashtag/', 'search?q='];
-  search4(url, query);
+  const url = 'https://www.tiktok.com/';
+  const query = ['tag/', 'search?q='];
+  search5(url, query);
 }
 // 15 note
 button[15].onclick = () => {
@@ -305,6 +305,17 @@ const search4 = (url, query) => {
     window.open(url);
   } else if (wordInput.value.match(/^@/)) {
     window.open(url + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
+  } else if (wordInput.value.match(/^#/)) {
+    window.open(url + query[0] + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
+  } else {
+    window.open(url + query[1] + encodeURIComponent(wordInput.value.replace(/^[\p{C}\p{Z}]+|[\p{C}\p{Z}]+$/gu, '')));
+  }
+}
+const search5 = (url, query) => {
+  if (wordInput.value.length === 0) {
+    window.open(url);
+  } else if (wordInput.value.match(/^@/)) {
+    window.open(url + '@' + encodeURIComponent(wordInput.value.replace(/^@+|[\p{C}\p{Z}]/gu, '')));
   } else if (wordInput.value.match(/^#/)) {
     window.open(url + query[0] + encodeURIComponent(wordInput.value.replace(/^#+|[\p{C}\p{Z}]/gu, '')));
   } else {
